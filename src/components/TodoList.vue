@@ -31,26 +31,44 @@
           Check All</label
         >
       </div>
-      <div>
-        <transition name="fade">
-          <button
-            v-if="showClearCompleatedButton"
-            @click="clearCompleated"
-            class="todo-button clear-button"
-          >
-            Clear Completed
-          </button>
-        </transition>
-      </div>
+
       <div>{{ remaining }} tasks left</div>
     </div>
-
+    <v-app id="inspire">
+      <v-row justify="center">
+        <v-dialog v-model="dialog" persistent max-width="290">
+          <template v-slot:activator="{ on, attrs }">
+            <transition name="fade">
+              <button
+                v-if="showClearCompleatedButton"
+                class="todo-button clear-button"
+                v-bind="attrs"
+                v-on="on"
+              >
+                Clear Completed
+              </button>
+            </transition>
+          </template>
+          <v-card>
+            <v-card-title class="text-h5"> Are you sure? </v-card-title>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-1" text @click="dialog = false">
+                NO
+              </v-btn>
+              <v-btn color="green darken-1" text @click="clearCompleated">
+                YES
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-row>
+    </v-app>
   </div>
 </template>
 
 <script>
 import TodoItem from "./TodoItem.vue";
-
 
 export default {
   name: "TodoList",
@@ -112,6 +130,7 @@ export default {
     },
     clearCompleated() {
       this.todos = this.todos.filter((todo) => !todo.completed);
+      this.dialog = false;
     },
     finishedEdit(data) {
       this.todos.splice(data.index, 1, data.todo);
