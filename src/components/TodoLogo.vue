@@ -22,4 +22,8 @@ export default {
   margin: 20px 20px 20px 0;
   height: 75px;
 }
+h2 {
+  display: flex;
+  align-items: center;
+}
 </style>
