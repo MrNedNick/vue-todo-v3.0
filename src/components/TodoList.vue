@@ -151,7 +151,7 @@ export default {
 }
 
 .todo-button {
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(202, 191, 191, 0.5);
   width: 20%;
   height: 46px;
   cursor: pointer;
@@ -160,6 +160,8 @@ export default {
   color: #000000;
   border-radius: 5px;
   transition: all 0.2s linear;
+  background-color: #eeeeee;
+  border-color: #eeeeee;
 }
 
 .todo-button:hover {
