@@ -7,24 +7,19 @@
 
 
 <script>
-import TodoList from './components/TodoList.vue'
-import TodoLogo from './components/TodoLogo.vue'
-
-
-
+import TodoList from "./components/TodoList.vue";
+import TodoLogo from "./components/TodoLogo.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TodoList,
     TodoLogo,
-
-  }
-}
+  },
+};
 </script>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -35,7 +30,7 @@ export default {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
