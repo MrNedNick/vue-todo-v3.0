@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "todo-item",
+  name: "TodoItem",
   props: {
     todo: {
       type: Object,

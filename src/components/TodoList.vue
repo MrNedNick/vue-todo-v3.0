@@ -99,20 +99,20 @@ export default {
   },
   computed: {
     remaining() {
-      return this.todos.filter((todo) => !todo.completed).length;
+      return this.$store.getters.remaining
     },
     anyRemaining() {
-      return this.remaining != 0;
+      return this.$store.getters.anyRemaining
     },
     showClearCompleatedButton() {
-      return this.todos.filter((todo) => todo.completed).length > 0;
+      return this.$store.getters.showClearCompleatedButton
     },
   },
   methods: {
     addTodo() {
       if (this.newTodo.trim().length == 0) return;
 
-      this.todos.push({
+      this.$store.state.todos.push({
         id: this.idForTodo,
         title: this.newTodo,
         completed: false,
@@ -123,17 +123,17 @@ export default {
       this.idForTodo++;
     },
     removeTodo(index) {
-      this.todos.splice(index, 1);
+      this.$store.state.todos.splice(index, 1);
     },
     checkAllTodos() {
-      this.todos.forEach((todo) => (todo.completed = event.target.checked));
+      this.$store.state.todos.forEach((todo) => (todo.completed = event.target.checked));
     },
     clearCompleated() {
-      this.todos = this.todos.filter((todo) => !todo.completed);
+      this.$store.state.todos = this.$store.state.todos.filter((todo) => !todo.completed);
       this.dialog = false;
     },
     finishedEdit(data) {
-      this.todos.splice(data.index, 1, data.todo);
+      this.$store.state.todos.splice(data.index, 1, data.todo);
     },
   },
 };
@@ -141,6 +141,7 @@ export default {
 
 <style >
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css");
+
 
 .todo-input {
   width: 80%;
