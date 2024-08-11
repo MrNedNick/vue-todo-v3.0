@@ -5,17 +5,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TodoLogo',
-}
-</script>
-
 <style>
 .logo-container {
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  justify-content: center;
 }
 .logo {
   display: block;
