@@ -110,7 +110,6 @@ export default {
 .remove-item:hover {
   color: black;
 }
-
 .todo-item-left {
   display: flex;
   align-items: center;
