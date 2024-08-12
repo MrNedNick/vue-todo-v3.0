@@ -102,7 +102,6 @@ export default {
   justify-content: space-between;
   animation-duration: 0.3s;
 }
-
 .remove-item {
   cursor: pointer;
   margin-left: 14px;
